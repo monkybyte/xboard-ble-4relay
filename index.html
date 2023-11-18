@@ -37,23 +37,23 @@
 
             <div class="card">
                 <h2>Relay 2</h2>
-                <button id="onButton" class="onButton">ON</button>
-                <button id="offButton" class="offButton">OFF</button>
-                <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
+                <button id="on2Button" class="on2Button">ON</button>
+                <button id="off2Button" class="off2Button">OFF</button>
+                <p class="gray-label">Last value sent: <span id="value2Sent"></span></p>
             </div>
 
             <div class="card">
                 <h2>Relay 3</h2>
-                <button id="onButton" class="onButton">ON</button>
-                <button id="offButton" class="offButton">OFF</button>
-                <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
+                <button id="on3Button" class="on3Button">ON</button>
+                <button id="off3Button" class="off3Button">OFF</button>
+                <p class="gray-label">Last value sent: <span id="value3Sent"></span></p>
             </div>
 
             <div class="card">
                 <h2>Relay 4</h2>
-                <button id="onButton" class="onButton">ON</button>
-                <button id="offButton" class="offButton">OFF</button>
-                <p class="gray-label">Last value sent: <span id="valueSent"></span></p>
+                <button id="on4Button" class="on4Button">ON</button>
+                <button id="off4Button" class="off4Button">OFF</button>
+                <p class="gray-label">Last value sent: <span id="value4Sent"></span></p>
             </div>
             
         </div>
@@ -68,8 +68,17 @@
     const disconnectButton = document.getElementById('disconnectBleButton');
     const onButton = document.getElementById('onButton');
     const offButton = document.getElementById('offButton');
+    const on2Button = document.getElementById('on2Button');
+    const off2Button = document.getElementById('off2Button');
+    const on3Button = document.getElementById('on3Button');
+    const off3Button = document.getElementById('off3Button');
+    const on4Button = document.getElementById('on4Button');
+    const off4Button = document.getElementById('off4Button');
     const retrievedValue = document.getElementById('valueContainer');
     const latestValueSent = document.getElementById('valueSent');
+    const latest2ValueSent = document.getElementById('value2Sent');
+    const latest3ValueSent = document.getElementById('value3Sent');
+    const latest4ValueSent = document.getElementById('value4Sent');
     const bleStateContainer = document.getElementById('bleState');
     const timestampContainer = document.getElementById('timestamp');
 
@@ -97,6 +106,12 @@
     // Write to the ESP32 LED Characteristic
     onButton.addEventListener('click', () => writeOnCharacteristic(1));
     offButton.addEventListener('click', () => writeOnCharacteristic(0));
+    on2Button.addEventListener('click', () => writeOn2Characteristic(1));
+    off2Button.addEventListener('click', () => writeOn2Characteristic(0));
+    on3Button.addEventListener('click', () => writeOn3Characteristic(1));
+    off3Button.addEventListener('click', () => writeOn3Characteristic(0));
+    on4Button.addEventListener('click', () => writeOn4Characteristic(1));
+    off4Button.addEventListener('click', () => writeOn4Characteristic(0));
 
     // Check if BLE is available in your Browser
     function isWebBluetoothEnabled() {
